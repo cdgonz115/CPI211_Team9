@@ -6,11 +6,11 @@ public class KeyScript : MonoBehaviour
 {
 
     private bool keyArea = false;
-
+    private DoorScript doorStuff;
     // Start is called before the first frame update
     void Start()
     {
-        Inventory.keyCount = 0;
+        doorStuff = GetComponent<DoorScript>();
     }
 
     // Update is called once per frame
@@ -18,13 +18,13 @@ public class KeyScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && keyArea == true)
         {
-            Inventory.keyCount++;
+            doorStuff.keyCount++;
             Destroy(gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             keyArea = true;
         }

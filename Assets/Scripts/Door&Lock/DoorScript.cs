@@ -6,13 +6,12 @@ public class DoorScript : MonoBehaviour
 {
     public Animation DoorOpen;
     private bool doorArea = false;
-
-    //public static int keyCount; maybe put here
+    public int keyCount;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        keyCount = 0;
     }
 
     // Update is called once per frame
