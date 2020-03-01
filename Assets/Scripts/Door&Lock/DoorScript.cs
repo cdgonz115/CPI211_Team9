@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    public Animation DoorOpen;
+    public Animator anim;
     private bool doorArea = false;
     public int keyCount;
 
@@ -12,6 +12,7 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         keyCount = 0;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,20 +20,22 @@ public class DoorScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && doorArea == true && keyCount > 0)
         {
-            GameObject.Find("Door").GetComponent<Animation>.Play("DoorOpen");
+            anim.enabled = true;
             keyCount--;
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "player")
+        if(other.gameObject.name == "Player")
         {
             doorArea = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "player")
+        if(other.gameObject.name == "Player")
         {
             doorArea = false;
         }
