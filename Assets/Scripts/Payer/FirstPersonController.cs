@@ -69,11 +69,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             RotateView();
-            /*if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 gravity = !gravity;
                 //transform.Rotate(new Vector3(180, 0, 0));
-            }*/
+            }
             // the jump state needs to read here to make sure it is not missed
             if (!m_PreviouslyGrounded && (m_CharacterController.isGrounded || inverseGround))
             {
