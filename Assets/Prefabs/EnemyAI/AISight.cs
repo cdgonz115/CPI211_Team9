@@ -104,7 +104,7 @@ public class AISight : MonoBehaviour
             //print("player hid");
             playerInSight = -1;
             playerMissing = 1;
-            selfState.agent.destination = selfState.lastPlayerSight.position;//go to where the player last was before they disappeared
+            selfState.agent.destination = selfState.lastPlayerSight.position+ (2)*player[0].GetComponent<Hiding>().hidingPlace.gameObject.transform.forward;//go to where the player last was before they disappeared
         }
 
         //make-shift onTriggerExit
