@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Graveyard.unity
+    guid: f5a8daa362ec341448d22370a0227a73
   m_configObjects: {}

@@ -28,7 +28,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && !anim.enabled)
         {
             if(keysToOpen==1)promptText.text = keysToOpen + " Key Needed";
             else promptText.text = keysToOpen + " Keys Needed";

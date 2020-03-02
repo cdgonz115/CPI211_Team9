@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KeyScript : MonoBehaviour
 {
-    public Text promptText;
+    public Text promptText; 
 
     private bool keyArea = false;
     void Update()
@@ -13,6 +13,7 @@ public class KeyScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && keyArea == true)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Keys>().keyCount++;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Keys>().UpdateKeys();
             Destroy(gameObject);
             promptText.text = "";
         }
