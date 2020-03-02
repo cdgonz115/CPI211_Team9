@@ -1,44 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyScript : MonoBehaviour
 {
+    public Text promptText;
 
     private bool keyArea = false;
-
-    public GameObject a;
-    private DoorScript doorStuff;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        doorStuff = a.GetComponent<DoorScript>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && keyArea == true)
         {
-            doorStuff.keyCount++;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Keys>().keyCount++;
             Destroy(gameObject);
+            promptText.text = "";
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
             keyArea = true;
+            promptText.text = "Press E to PickUp";
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
             keyArea = false;
+            promptText.text = "";
         }
     }
 }

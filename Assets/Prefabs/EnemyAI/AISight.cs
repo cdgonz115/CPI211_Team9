@@ -8,6 +8,9 @@ public class AISight : MonoBehaviour
     public float view = 135f;//ai view in degrees
     public int playerInSight = -1;//state var
     public int playerMissing = -1;
+    public AudioSource ads;
+    private bool play=true;
+    [SerializeField] private AudioClip[] sounds;
 
     //might use the following for hearing
     //>>
@@ -27,12 +30,21 @@ public class AISight : MonoBehaviour
         selfState = GetComponent<moveTo>();
     }
 
+    private void Update()
+    {
+        if (selfState.isSearching == 1) play = true;
+    }
     void OnTriggerStay(Collider other)
     {
-        bool hiding = player[0].GetComponent<playerStateTest>().isHiding;
+        bool hiding = player[0].GetComponent<Hiding>().isHiding;
         bool behindWall = false;
         if (selfState.isChasing == 1)
         {
+            if (!ads.isPlaying && play)
+            {
+                ads.PlayOneShot(sounds[0]);
+                play = false;
+            }
             selfState.lastPlayerSight = player[0].transform;
         }
 
