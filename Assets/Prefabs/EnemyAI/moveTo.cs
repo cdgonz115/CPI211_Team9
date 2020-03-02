@@ -63,7 +63,7 @@ public class moveTo : MonoBehaviour
 
         if (agent.remainingDistance <= agent.stoppingDistance)//if we have arrived at a checkpoint
         {
-            if (pathIndex < 3)//move on to the next pathPoints.Length
+            if (pathIndex < pathPoints.Length-1)//move on to the next pathPoints.Length
             {
                 pathIndex++;//increment
                 

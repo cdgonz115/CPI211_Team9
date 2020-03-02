@@ -39,9 +39,9 @@ public class Hiding : MonoBehaviour
 
             if (Input.GetKeyDown("e") && (isHiding == false))
             {
+                isHiding = true;
                 lastPos = this.transform.position;
                 transform.position = hidingPlace.transform.position+new Vector3(0,3.5f,0)+(.5f)*hidingPlace.transform.forward;
-                isHiding = true;
                 cc.enabled = false;
                 fps.enabled = false;
                 cm.enabled = true;
